@@ -1,0 +1,32 @@
+body
+{
+    background-color: rgb(0, 162, 255);
+    font-family: Lato, sans-serif;
+}
+#drpWrapper
+{
+    width: 100%;
+    text-align: center;
+}
+#dateTimePicker
+{
+    width: 450px;
+    height: 50px;
+    margin: 0;
+    position: absolute;
+    top: calc(50% - 156px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    color: white;
+    font-size: 2em;
+
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+}
+#dateTimePicker:focus
+{
+    outline: none;
+}
