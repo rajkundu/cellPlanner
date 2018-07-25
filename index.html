@@ -3,34 +3,45 @@
         <!-- Import Javascript & JQuery -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+        <!-- Import Bootstrap and DateRangePicker -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
         <!-- Import Stylesheets -->
         <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css"/>
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div id="drpWrapper">
-            <input id="dateTimePicker" class="calendar" type="text" name="datetimes"/>
-            <script>
-                    $('#dateTimePicker').daterangepicker(
-                    {
-                        "timePicker": true,
-                        "timePickerIncrement": 5,
-                        "autoApply": true,
-                        "parentEl": "#drpWrapper",
-                        "opens": "center",
-                    },
-                    function(start, end, label)
-                    {
-                        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-                    });
-                    $(window).load(function()
-                    {
-                        $('#dateTimePicker').daterangepicker.toggle();
-                    });
-                </script>
+        <h1 id="pageTitle">Cell Planner</h1>
+        <div class="col-md-6 dateInputWrapper">
+            Start Date:&nbsp;&nbsp;
+            <input type="date" id="startDate" class="calendar" type="text"/>
+            <br>
+            <br>
+            Start Time:&nbsp;&nbsp;
+            <input type="time" id="startTime" class="clock" type="text" value="00:00"/>
         </div>
+        <div class="col-md-6 dateInputWrapper">
+            End Date:&nbsp;&nbsp;
+            <input type="date" id="endDate" class="calendar" type="text"/>
+            <br>
+            <br>
+            End Time:&nbsp;&nbsp;
+            <input type="time" id="endTime" class="clock" type="text" value="00:00"/>
+        </div>
+        <!-- Autofill Start Values -->
+        <script>
+            var today = new Date();
+            document.getElementById('startDate').valueAsDate = today;
+            var tomorrow = new Date();
+            tomorrow.setDate(today.getDate()+1);
+            document.getElementById('endDate').valueAsDate = tomorrow;
+
+        </script>
     </body>
 </html>
